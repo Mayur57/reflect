@@ -7,7 +7,6 @@ export const VideoBackground = () => (
       muted
       playsInline
       className="absolute min-w-full min-h-full object-cover"
-      poster="/videos/sunflower-poster.jpg"
     >
       <source
         src="/sunflower-720p.mp4"
