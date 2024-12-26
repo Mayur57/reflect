@@ -11,6 +11,7 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-manrope)'],
         serif: ['var(--font-new-york)'],
+        ss4: ['var(--font-ss4)']
       },
     },
   },

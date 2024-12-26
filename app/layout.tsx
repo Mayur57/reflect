@@ -1,6 +1,6 @@
 import './globals.css';
 import localFont from 'next/font/local'
-import { Geist } from 'next/font/google'
+import { Geist, Bodoni_Moda } from 'next/font/google'
 import { Metadata } from 'next';
 
 const newYork = localFont({
@@ -9,7 +9,13 @@ const newYork = localFont({
   variable: '--font-new-york'
 })
 
-const manrope = Geist({
+const ss4 = Bodoni_Moda({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-ss4'
+})
+
+const geist = Geist({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-manrope'
@@ -17,7 +23,7 @@ const manrope = Geist({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://mayurbhoi.com'),
-  title: 'Reflect by Mayur Bhoi',
+  title: 'Reflect',
   description: "Look back at your year and reflect on how it's been",
   openGraph: {
     title: 'Mayur Bhoi',
@@ -53,7 +59,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${newYork.variable} ${manrope.variable}`}>
+    <html lang="en" className={`${newYork.variable} ${geist.variable} ${ss4.variable}`}>
       <body>{children}</body>
     </html>
   );
