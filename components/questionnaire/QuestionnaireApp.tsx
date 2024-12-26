@@ -1,4 +1,3 @@
-// src/components/questionnaire/QuestionnaireApp.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -59,8 +58,10 @@ export const QuestionnaireApp = () => {
     }
   };
 
+  const alignment = started ? "justify-center" : "justify-start"
+
   return (
-    <div className="min-h-screen flex items-center justify-center relative">
+    <div className={`min-h-screen flex items-center ${alignment} relative`}>
       <VideoBackground />
       
       <AnimatePresence mode="wait">

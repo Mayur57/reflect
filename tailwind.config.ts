@@ -9,7 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ['Playfair Display', 'serif'],
+        sans: ['var(--font-manrope)'],
+        serif: ['var(--font-new-york)'],
       },
     },
   },
