@@ -4,7 +4,7 @@ import { Geist } from 'next/font/google'
 import { Metadata } from 'next';
 
 const newYork = localFont({
-  src: './newyork.otf',
+  src: './NewYork.otf',
   display: 'swap',
   variable: '--font-new-york'
 })

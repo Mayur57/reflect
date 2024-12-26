@@ -6,13 +6,13 @@ export function WelcomeScreen({ onStart }: any) {
     <div className="min-h-screen flex items-center justify-center px-2 sm:px-12">
       <motion.div
         initial={{ opacity: 0, y: 0, scale: 1 }}
-        animate={{ opacity: 1, y: 0, scale: 1.02 }}
+        animate={{ opacity: 1, y: 0, scale: 1.01 }}
         transition={{ delay: 0.25, duration: 0.5 }}
         className="w-full max-w-2xl rounded-2xl p-8"
       >
         <div className="text-left space-y-8">
           <div className="space-y-4">
-            <h1 className="text-6xl sm:text-8xl font-serif text-white leading-tight">
+            <h1 className="text-6xl sm:text-[5rem] font-serif text-white leading-tight">
               Reflect
             </h1>
             <div className="w-24 h-[1.5px] bg-white" />
@@ -25,7 +25,7 @@ export function WelcomeScreen({ onStart }: any) {
             onClick={onStart}
             className="px-16 py-4 border border-white text-white
                    text-sm hover:from-amber-600 hover:to-orange-600 transform
-                   hover:backdrop-blur-3xl tracking-widest uppercase transition-all duration-300 shadow-lg hover:shadow-xl"
+                   hover:backdrop-blur-3xl tracking-widest uppercase transition-all duration-300 shadow-lg hover:bg-white hover:text-black"
           >
             Start
           </button>
