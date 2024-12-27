@@ -1,8 +1,8 @@
 // app/api/character-summary/route.js
 
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function POST(request: NextResponse) {
+export async function POST(request: NextRequest) {
   try {
     const { answers } = await request.json();
 
