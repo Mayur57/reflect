@@ -72,7 +72,7 @@ export const QuestionnaireApp = () => {
         <AnimatePresence mode="wait">
           {!started ? (
             <WelcomeScreen onStart={() => setStarted(true)} />
-          ) : currentQuestionIndex >= questions.length ? (
+          ) : true ? (
             <ThankYouScreen />
           ) : (
             <QuestionScreen
