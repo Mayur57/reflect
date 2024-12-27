@@ -1,3 +1,65 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes glowGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .animate-glow-gradient {
+    background: linear-gradient(
+      108deg,
+      #0894ff,
+      #c959dd 34%,
+      #ff2e54 68%,
+      #ff9004
+    );
+    background-size: 300% 300%;
+    animation: glowGradient 10s ease infinite;
+    filter: blur(20px);
+    position: absolute;
+    inset: -10px;
+    border-radius: inherit;
+    z-index: -1;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-in {
+    animation: slideIn 0.5s ease-in-out;
+  }
+  
+  .transition-opacity {
+    opacity: 1;
+  }
+  

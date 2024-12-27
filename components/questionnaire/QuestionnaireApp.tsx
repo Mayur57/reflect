@@ -73,7 +73,7 @@ export const QuestionnaireApp = () => {
           {!started ? (
             <WelcomeScreen onStart={() => setStarted(true)} />
           ) : true ? (
-            <ThankYouScreen />
+            <ThankYouScreen answers={answer} />
           ) : (
             <QuestionScreen
               questionIndex={currentQuestionIndex}
