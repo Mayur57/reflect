@@ -15,9 +15,8 @@ export const QuestionNavigation = ({
 
   return (
     <div className="w-full flex items-center justify-center px-2 relative">
-      {/* Current Question / Total */}
       <button
-        onClick={() => setIsDropdownOpen((prev) => !prev)} // Toggle dropdown visibility
+        onClick={() => setIsDropdownOpen((prev) => !prev)}
         className="px-4 py-2 text-xs text-white hover:bg-white hover:text-black transition-all"
       >
         {currentIndex + 1} / {totalQuestions}
