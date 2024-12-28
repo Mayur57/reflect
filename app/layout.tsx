@@ -22,14 +22,14 @@ const geist = Geist({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://mayurbhoi.com'),
+  metadataBase: new URL('https://reflectly.vercel.app'),
   title: 'Reflect',
   description: "Look back at your year and reflect on how it's been",
   openGraph: {
-    title: 'Mayur Bhoi',
-    description: 'Full-stack developer; doing what I love.',
-    url: 'https://mayurbhoi.com',
-    siteName: 'Mayur Bhoi',
+    title: 'Reflect',
+    description: "Look back at your year and reflect on how it's been",
+    url: 'https://reflectly.vercel.app',
+    siteName: 'Reflect',
     locale: 'en_IN',
     type: 'website',
   },
@@ -45,11 +45,8 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: 'Mayur Bhoi',
+    title: 'Reflect',
     card: 'summary_large_image',
-  },
-  verification: {
-    google: 'GsV_3_triVwZXNnffPNiN2nGANIvZVbi97EbnbTJ29s',
   },
 }
 
