@@ -52,7 +52,7 @@ export const QuestionScreen = ({
         <ProgressBar current={questionIndex} total={totalQuestions} />
         <div className="flex justify-between gap-2">
           <button
-            onSubmit={() => {
+            onClick={() => {
               onNavigate(questionIndex - 1);
             }}
             className="px-2 w-full py-4 border border-white text-white
@@ -64,7 +64,9 @@ export const QuestionScreen = ({
           <QuestionNavigation
             currentIndex={questionIndex}
             totalQuestions={totalQuestions}
-            onNavigate={onNavigate}
+            onNavigate={(index) => {
+              onNavigate(index);
+            }}
           />
           <button
             type="submit"
@@ -78,7 +80,7 @@ export const QuestionScreen = ({
       </form>
       <div className="flex w-full justify-center pt-4">
         <p className="text-xs text-white/60">
-          Don't worry, your progress will be saved even if you close this tab.
+        Keep your responses between 100-250 characters for the best results. Don't worry—your progress is saved automatically.
         </p>
       </div>
     </div>

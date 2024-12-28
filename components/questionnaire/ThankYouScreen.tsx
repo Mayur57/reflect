@@ -12,8 +12,8 @@ const answers = {
     "During a solo camping trip in September. Sitting by the lake at sunrise, watching mist rise off the water with no sounds except birdsong and gentle waves. For the first time in months, my mind was completely quiet.",
 };
 
-const STORAGE_KEY = "app_data";
-const ENCRYPTION_SECRET = "my-secret-key";
+const STORAGE_KEY: string = "data";
+const ENCRYPTION_SECRET: any = "17da4a9d888d3145fa74e8c9";
 
 const encryptData = (data: any) => {
   return CryptoJS.AES.encrypt(
@@ -76,7 +76,7 @@ export function ThankYouScreen({ answers2 }: any) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 w-full min-w-56">
+    <div className="min-h-screen flex items-center justify-center pt-12 pb-20 sm:py-4 w-full min-w-56">
       <motion.div
         initial={{ opacity: 0, scale: 1 }}
         animate={{ opacity: 1, scale: 1.01 }}
