@@ -12,7 +12,7 @@ import Footer from "../footer";
 export const QuestionnaireApp = () => {
   const [started, setStarted] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState<Record<number, string>>({});
+  const [answers, setAnswers] = useState<Record<string, string>>({}); // Store answers by question text
   const [answer, setAnswer] = useState("");
   const [fadeOut, setFadeOut] = useState(false);
 
@@ -22,7 +22,8 @@ export const QuestionnaireApp = () => {
       const { answers: savedAnswers, currentIndex } = JSON.parse(savedProgress);
       setAnswers(savedAnswers);
       setCurrentQuestionIndex(currentIndex);
-      setAnswer(savedAnswers[currentIndex] || "");
+      const currentQuestion = questions[currentIndex];
+      setAnswer(savedAnswers[currentQuestion] || "");
     }
   }, []);
 
@@ -41,24 +42,28 @@ export const QuestionnaireApp = () => {
     setFadeOut(true);
 
     setTimeout(() => {
+      const currentQuestion = questions[currentQuestionIndex];
       setAnswers((prev) => ({
         ...prev,
-        [currentQuestionIndex]: answer,
+        [currentQuestion]: answer,
       }));
       setCurrentQuestionIndex((prev) => prev + 1);
-      setAnswer(answers[currentQuestionIndex + 1] || "");
+      const nextQuestion = questions[currentQuestionIndex + 1];
+      setAnswer(answers[nextQuestion] || "");
       setFadeOut(false);
     }, 500);
   };
 
   const handleNavigate = (index: number) => {
     if (index >= 0 && index < questions.length) {
+      const currentQuestion = questions[currentQuestionIndex];
       setAnswers((prev) => ({
         ...prev,
-        [currentQuestionIndex]: answer,
+        [currentQuestion]: answer,
       }));
       setCurrentQuestionIndex(index);
-      setAnswer(answers[index] || "");
+      const nextQuestion = questions[index];
+      setAnswer(answers[nextQuestion] || "");
     }
   };
 
@@ -73,7 +78,7 @@ export const QuestionnaireApp = () => {
           {!started ? (
             <WelcomeScreen onStart={() => setStarted(true)} />
           ) : currentQuestionIndex >= questions.length ? (
-            <ThankYouScreen answers={answer} />
+            <ThankYouScreen answers={answers} />
           ) : (
             <QuestionScreen
               questionIndex={currentQuestionIndex}

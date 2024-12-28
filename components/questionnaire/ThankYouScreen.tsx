@@ -5,13 +5,6 @@ import { useEffect, useState } from "react";
 import CryptoJS from "crypto-js";
 import generatePDF from "@/lib/generatePdf";
 
-const answers = {
-  "What was the happiest moment of your year?":
-    "When my sister had her first baby. Holding my tiny nephew and seeing her become a mother filled me with indescribable joy. In that moment, our family felt complete in a new way.",
-  "When did you feel most at peace, and why?":
-    "During a solo camping trip in September. Sitting by the lake at sunrise, watching mist rise off the water with no sounds except birdsong and gentle waves. For the first time in months, my mind was completely quiet.",
-};
-
 const STORAGE_KEY: string = "data";
 const ENCRYPTION_SECRET: any = "17da4a9d888d3145fa74e8c9";
 
@@ -27,7 +20,7 @@ const decryptData = (data: string) => {
   return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
 };
 
-export function ThankYouScreen({ answers2 }: any) {
+export function ThankYouScreen({ answers }: any) {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<any>(null);
   const [error, setError] = useState<any>(null);

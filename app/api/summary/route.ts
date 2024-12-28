@@ -10,17 +10,18 @@ export async function POST(request: NextRequest) {
       2. "prediction": Two sentences predicting how and what the person might experience in the future based on these answers.
       3. "emotional": A whole number (with granularity of 1) from 0-100 that classifies the person ranging from Stable (calm, grounded, and composed) to Dynamic (emotionally expressive, intense, and highly sensitive) respectively. Captures the emotional balance and variability of the person
       4. "openness": A whole number (with granularity of 1) from 0-100 that classifies the person ranging from Conventional (prefers routines, traditions, and practicality) to Imaginative (embraces novelty, abstract thinking, and exploration) respectively. Represents how open a person is to new experiences, ideas, and creativity.
-      Answers:
+
+      Here are questions and answers in stringified JSON format:
       ${JSON.stringify(answers)}
 
       Keep in mind that the person is asking for information, so you reply by referring them as "you".
       Do not make any precise predictions in terms of time, place or any other specific detail.
       
-      Only respond in the form of a string with no other information:
+      Only respond in the form of a single line string with "+" (plus) as seperators. Return no other information, this is the format:
 
-      "summary:<text>\nprediction:<text>\nopenness:<number>\nemotional\n<number>"
+      "summary:<text>+prediction:<text>+openness:<text>+emotional:<text>"
       
-      This is VERY, VERY IMPORTANT. NO EXTRA CHARACTERS EXCEPT AS IN ABOVE FORMAT.
+      Following instructions is VERY, VERY IMPORTANT. NO EXTRA CHARACTERS OR INFORMATION AND ALWAYAS, ALWAYS, ALWAYS FOLLOW THE ABOVE FORMAT.
     `;
 
     const apiResponse = await fetch(
@@ -51,11 +52,12 @@ export async function POST(request: NextRequest) {
     const assistantMessage = data.choices?.[0]?.message?.content;
     console.log({assistantMessage})
     if (assistantMessage) {
-      const params: any = assistantMessage.split("\n");
+      const params: any = assistantMessage.split("+");
       const about = params[0].split("summary:")[1];
       const next = params[1].split("prediction:")[1];
       const o1 = parseInt(params[2].split("openness:")[1]);
       const e1 = parseInt(params[3].split("emotional:")[1]);
+
       console.log({
         summary: about,
         prediction: next,
