@@ -24,10 +24,10 @@ const geist = Geist({
 export const metadata: Metadata = {
   metadataBase: new URL('https://reflectly.vercel.app'),
   title: 'Reflect',
-  description: "Look back at your year and reflect on how it's been",
+  description: "Take a look back",
   openGraph: {
     title: 'Reflect',
-    description: "Look back at your year and reflect on how it's been",
+    description: "Take a look back",
     url: 'https://reflectly.vercel.app',
     siteName: 'Reflect',
     locale: 'en_IN',
