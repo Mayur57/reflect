@@ -143,12 +143,12 @@ export function ThankYouScreen({ answers }: any) {
                 target="_blank"
                 rel="noopener noreferrer"
                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-                  `🌻 I am ${
+                  `🌻 My personality type based on this year has been ${
                     getPersonalityType(
                       result?.openness || 50,
                       result?.emotionality || 50
                     ).title
-                  }!\n\nFind out your your personality type here: ${SITE_URL}`
+                  }!\n\nFind yours here: ${SITE_URL}`
                 )}`}
                 className="p-2 text-white hover:bg-white hover:text-black transition-all duration-300"
               >
@@ -159,12 +159,12 @@ export function ThankYouScreen({ answers }: any) {
                 target="_blank"
                 rel="noopener noreferrer"
                 href={`https://bsky.app/intent/compose?text=${encodeURIComponent(
-                  `🌻 I am ${
+                  `🌻 My personality type based on this year has been ${
                     getPersonalityType(
                       result?.openness || 50,
                       result?.emotionality || 50
                     ).title
-                  }!\n\nFind out your your personality type here: ${SITE_URL}`
+                  }!\n\nFind yours here: ${SITE_URL}`
                 )}`}
                 className="p-2 text-white hover:bg-white hover:text-black transition-all duration-300"
               >
