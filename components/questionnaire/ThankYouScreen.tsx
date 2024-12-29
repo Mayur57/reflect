@@ -144,9 +144,11 @@ export function ThankYouScreen({ answers }: any) {
                 rel="noopener noreferrer"
                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
                   `🌻 I am ${
-                    getPersonalityType(result?.openness, result?.emotionality)
-                      .title
-                  }!\n\nDiscover your personality type here: ${SITE_URL}`
+                    getPersonalityType(
+                      result?.openness || 50,
+                      result?.emotionality || 50
+                    ).title
+                  }!\n\nFind out your your personality type here: ${SITE_URL}`
                 )}`}
                 className="p-2 text-white hover:bg-white hover:text-black transition-all duration-300"
               >
@@ -156,11 +158,13 @@ export function ThankYouScreen({ answers }: any) {
                 key="bluesky"
                 target="_blank"
                 rel="noopener noreferrer"
-                href={`https://bsky.app/compose?text=${encodeURIComponent(
-                  `🌻 I am a ${
-                    getPersonalityType(result?.openness, result?.emotionality)
-                      .title
-                  }!\n\nDiscover your personality type here: ${SITE_URL}`
+                href={`https://bsky.app/intent/compose?text=${encodeURIComponent(
+                  `🌻 I am ${
+                    getPersonalityType(
+                      result?.openness || 50,
+                      result?.emotionality || 50
+                    ).title
+                  }!\n\nFind out your your personality type here: ${SITE_URL}`
                 )}`}
                 className="p-2 text-white hover:bg-white hover:text-black transition-all duration-300"
               >
