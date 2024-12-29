@@ -4,9 +4,11 @@ import CharacterSummary from "../ai/summary";
 import { useEffect, useState } from "react";
 import CryptoJS from "crypto-js";
 import generatePDF from "@/lib/generatePdf";
+import getPersonalityType from "@/lib/personalityTypes";
 
 const STORAGE_KEY: string = "data";
 const ENCRYPTION_SECRET: any = "17da4a9d888d3145fa74e8c9";
+const SITE_URL: string = "https://reflectly.vercel.app/";
 
 const encryptData = (data: any) => {
   return CryptoJS.AES.encrypt(
@@ -136,15 +138,34 @@ export function ThankYouScreen({ answers }: any) {
           <div className="flex flex-row justify-between items-center py-3 px-4 w-full border mt-3">
             <h3 className="font-ss4 text-lg text-white">Share</h3>
             <div className="flex gap-2">
-              {["Twitter ↗", "Bluesky ↗"].map((platform, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className="p-2 text-white hover:bg-white hover:text-black transition-all duration-300"
-                >
-                  {platform}
-                </a>
-              ))}
+              <a
+                key="twitter"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+                  `🌻 I am ${
+                    getPersonalityType(result?.openness, result?.emotionality)
+                      .title
+                  }!\n\nDiscover your personality type here: ${SITE_URL}`
+                )}`}
+                className="p-2 text-white hover:bg-white hover:text-black transition-all duration-300"
+              >
+                Twitter ↗
+              </a>
+              <a
+                key="bluesky"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={`https://bsky.app/compose?text=${encodeURIComponent(
+                  `🌻 I am a ${
+                    getPersonalityType(result?.openness, result?.emotionality)
+                      .title
+                  }!\n\nDiscover your personality type here: ${SITE_URL}`
+                )}`}
+                className="p-2 text-white hover:bg-white hover:text-black transition-all duration-300"
+              >
+                Bluesky ↗
+              </a>
             </div>
           </div>
         </div>

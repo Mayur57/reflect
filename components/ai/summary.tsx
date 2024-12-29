@@ -1,32 +1,5 @@
+import getPersonalityType from "@/lib/personalityTypes";
 import React from "react";
-
-const getPersonalityType = (openness: any = 50, emotionality: any = 50) => {
-  if (openness > 50 && emotionality > 50) {
-    return {
-      title: "The Dreamer",
-      description:
-        "Highly creative and emotionally intense, you thrive in exploring new ideas and expressing your emotions vividly.",
-    };
-  } else if (openness <= 50 && emotionality > 50) {
-    return {
-      title: "The Grounded Visionary",
-      description:
-        "Practical yet emotionally expressive, you balance stability with a dynamic emotional depth.",
-    };
-  } else if (openness > 50 && emotionality <= 50) {
-    return {
-      title: "The Thoughtful Explorer",
-      description:
-        "Creative and emotionally composed, you prefer to explore ideas thoughtfully while maintaining emotional balance.",
-    };
-  } else {
-    return {
-      title: "The Steady Realist",
-      description:
-        "Practical and emotionally balanced, you are grounded and focused on stability and tradition.",
-    };
-  }
-};
 
 const CharacterSummary = ({ states }: any) => {
   const { result, loading, error } = states;
@@ -36,7 +9,6 @@ const CharacterSummary = ({ states }: any) => {
     result?.emotionality
   );
 
-  console.log({states})
   return (
     <div className="relative p-6 border text-white mt-3 bg-black">
       <div className="absolute inset-0 -z-10 blur-lg animate-glow-gradient overflow-hidden rounded-md" />
